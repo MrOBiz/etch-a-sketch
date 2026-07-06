@@ -13,19 +13,22 @@ btn.textContent = "CHANGE GRID SIZE"
 btn.addEventListener("click", askGridSize);
 container.appendChild(btn);
 
+//Initial grid
 createGrid(totalDivs);
+changeColorOnHover();
 
 function askGridSize(){
-    while(totalDivs < 0 || totalDivs > 100 || totalDivs == 16){
+    let whileFlag = totalDivs;
+    while(totalDivs < 0 || totalDivs > 100 || totalDivs == whileFlag){
         totalDivs = prompt("How many squares per side? ", "max: 100");
     }
-    divCells.forEach((div) => {
-        div.remove();
-    });
-    divRow.forEach((div) => {
-        div.remove();
-    });
+    container.replaceChildren();
+    divRow.length = 0;
+    divCells.length = 0;
+
+    container.appendChild(btn);
     createGrid(totalDivs);
+    changeColorOnHover();
 }
 
 //Creates the square grid
@@ -51,12 +54,13 @@ function createGrid(squares){
 //console.log(divCol.length); contains all the cells = totalDivs**2
 
 //Changes div color on mouse Hover
-for(let div of divCells){
-    div.addEventListener("mouseover", () => {
-        div.style.backgroundColor = "green";
-    });
+function changeColorOnHover(){
+    for(let div of divCells){
+        div.addEventListener("mouseover", () => {
+            div.style.backgroundColor = "green";
+        });
+    }
 }
-
 
 
 
