@@ -1,26 +1,25 @@
+h1{
+    display: flex;
+    justify-content: center;
+}
+
 .container{
     display: flex;
+    flex-direction: column;
     max-width: 1200px;
     margin: 0 auto;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
 }
 
 .rowElement{
     display: flex;
-    flex: 1;
-    max-height: 30px;
-    
+    max-height: 50px;
 }
 
 
 .colElement{
     display: flex;
-    flex: 1;
     background-color: lightgray;
-    padding: 10px;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
 }
