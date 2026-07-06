@@ -1,10 +1,13 @@
 
 let divRow = [];
 let divCol = [];
-let totalDivs = 16;
+const totalDivs = 16;
+let mouseX;
+let mouseY;
 
 const container = document.querySelector(".container");
 
+//Creates the square grid
 for(let i = 0; i < totalDivs; i++ ){
     const row = document.createElement("div");
     row.classList.add("rowElement");
@@ -20,3 +23,18 @@ for(let i = 0; i < totalDivs; i++ ){
 
     container.appendChild(row);
 }
+
+
+document.addEventListener("mousemove", function(event){
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+    console.log(mouseX);
+    console.log(mouseY);
+});
+
+//Changes div color on mouse Hover
+function changeColorOnHover(){
+
+}
+
+
