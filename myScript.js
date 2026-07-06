@@ -19,6 +19,12 @@ function askGridSize(){
     while(totalDivs < 0 || totalDivs > 100 || totalDivs == 16){
         totalDivs = prompt("How many squares per side? ", "max: 100");
     }
+    divCells.forEach((div) => {
+        div.remove();
+    });
+    divRow.forEach((div) => {
+        div.remove();
+    });
     createGrid(totalDivs);
 }
 
