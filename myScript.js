@@ -1,6 +1,6 @@
 
 let divRow = [];
-let divCol = [];
+let divCells = [];
 const totalDivs = 16;
 let mouseX;
 let mouseY;
@@ -15,26 +15,27 @@ for(let i = 0; i < totalDivs; i++ ){
 
     for(let j = 0; j < totalDivs; j++){
         const col = document.createElement("div");
-        divCol.push(col);
+        divCells.push(col);
         col.classList.add("colElement");
         divRow[i].appendChild(col);
-        console.log(col);
+        //console.log(col);
     }
 
     container.appendChild(row);
 }
 
-
-document.addEventListener("mousemove", function(event){
-    mouseX = event.clientX;
-    mouseY = event.clientY;
-    console.log(mouseX);
-    console.log(mouseY);
-});
+//console.log(divRow.length); contains only div that form rows = totalDivs
+//console.log(divCol.length); contains all the cells = totalDivs**2
 
 //Changes div color on mouse Hover
-function changeColorOnHover(){
-
+for(let div of divCells){
+    div.addEventListener("mouseover", () => {
+        div.style.backgroundColor = "green";
+    });
 }
+
+
+
+
 
 
