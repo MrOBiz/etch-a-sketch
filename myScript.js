@@ -1,27 +1,44 @@
 
 let divRow = [];
 let divCells = [];
-const totalDivs = 16;
+let totalDivs = 16;
 let mouseX;
 let mouseY;
 
 const container = document.querySelector(".container");
 
-//Creates the square grid
-for(let i = 0; i < totalDivs; i++ ){
-    const row = document.createElement("div");
-    row.classList.add("rowElement");
-    divRow.push(row);
+const btn = document.createElement("button")
+btn.classList.add("centralBtn");
+btn.textContent = "CHANGE GRID SIZE"
+btn.addEventListener("click", askGridSize);
+container.appendChild(btn);
 
-    for(let j = 0; j < totalDivs; j++){
-        const col = document.createElement("div");
-        divCells.push(col);
-        col.classList.add("colElement");
-        divRow[i].appendChild(col);
-        //console.log(col);
+createGrid(totalDivs);
+
+function askGridSize(){
+    while(totalDivs < 0 || totalDivs > 100 || totalDivs == 16){
+        totalDivs = prompt("How many squares per side? ", "max: 100");
     }
+    createGrid(totalDivs);
+}
 
-    container.appendChild(row);
+//Creates the square grid
+function createGrid(squares){
+    for(let i = 0; i < squares; i++ ){
+        const row = document.createElement("div");
+        row.classList.add("rowElement");
+        divRow.push(row);
+
+        for(let j = 0; j < squares; j++){
+            const col = document.createElement("div");
+            divCells.push(col);
+            col.classList.add("colElement");
+            divRow[i].appendChild(col);
+            //console.log(col);
+        }
+
+        container.appendChild(row);
+    }
 }
 
 //console.log(divRow.length); contains only div that form rows = totalDivs
