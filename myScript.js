@@ -1,9 +1,8 @@
 
 let divRow = [];
 let divCells = [];
+let interactionArray = [];
 let totalDivs = 16;
-let mouseX;
-let mouseY;
 
 const container = document.querySelector(".container");
 
@@ -53,6 +52,9 @@ function createGrid(squares){
 
         container.appendChild(row);
     }
+
+    interactionArray.length = divCells.length;
+    interactionArray.fill(1);
 }
 
 //console.log(divRow.length); contains only div that form rows = totalDivs
@@ -69,6 +71,10 @@ function changeColorOnHover(){
                                         ", " + currentColor[2] +
                                         ")";
 
+            div.style.opacity = "" + 10 *
+                                interactionArray[divCells.indexOf(div)] +
+                                 "%";
+            interactionArray[divCells.indexOf(div)] += 1;
         });
     }
 }
@@ -81,6 +87,7 @@ function randomizeColor(){
     }
     return colorRgb; 
 }
+
 
 
 
