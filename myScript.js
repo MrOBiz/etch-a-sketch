@@ -62,11 +62,25 @@ function createGrid(squares){
 function changeColorOnHover(){
     for(let div of divCells){
         div.addEventListener("mouseover", () => {
-            div.style.backgroundColor = "green";
+            //div.style.backgroundColor = "green";
+            let currentColor = randomizeColor();
+            div.style.backgroundColor = "rgb(" + currentColor[0] +
+                                        ", " + currentColor[1] +
+                                        ", " + currentColor[2] +
+                                        ")";
+
         });
     }
 }
 
+function randomizeColor(){
+    let colorRgb = [];
+    for(let i = 0; i < 3; i ++){
+        let x = Math.floor(Math.random() * 255);
+        colorRgb.push(x);
+    }
+    return colorRgb; 
+}
 
 
 
