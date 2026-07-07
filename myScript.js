@@ -15,6 +15,7 @@ btn.style.margin = "10px";
 container.appendChild(btn);
 
 //Initial grid
+container.style.setProperty("--grid-size", totalDivs);
 createGrid(totalDivs);
 changeColorOnHover();
 
