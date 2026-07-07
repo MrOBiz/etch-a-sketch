@@ -11,6 +11,7 @@ const btn = document.createElement("button")
 btn.classList.add("centralBtn");
 btn.textContent = "CHANGE GRID SIZE"
 btn.addEventListener("click", askGridSize);
+btn.style.margin = "10px";
 container.appendChild(btn);
 
 //Initial grid
@@ -25,6 +26,9 @@ function askGridSize(){
     container.replaceChildren();
     divRow.length = 0;
     divCells.length = 0;
+
+    //Sets property for CSS dimensions
+    container.style.setProperty("--grid-size", totalDivs);
 
     container.appendChild(btn);
     createGrid(totalDivs);
